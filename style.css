@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --card-padding-inline: 2.25rem;
+    --card-padding-bottom: 1.5rem;
+    --card-height: 240px;
+    --card-margin: 1rem;
+
+}
+
+.container {
+    margin: 2rem 0;
+    font-family: 'Poppins';
+    color: hsl(229, 6%, 66%);
+    text-align: center; 
+}
+
+.intro {
+    max-width: 55ch;
+    margin-inline: auto;
+    padding: 1rem 0;
+}
+
+.intro__heading {
+    font-weight: 200;
+    font-size: 2rem;
+}
+
+.intro__heading-bold {
+    display: block;
+    font-weight: 600;
+    color: hsl(234, 12%, 34%);
+
+}
+
+.card-container {
+    text-align: left;   
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*max height for two cards with margin-top and bottom each */
+    max-height: calc(calc(var(--card-height)*2) + calc(var(--card-margin)*4 + 1px));
+}
+
+
+/* width of three cards plus to box-shadows to avoid shadows touching the next card */
+@media (max-width: 1280px) {
+    .card-container{
+        max-height: fit-content;
+        justify-content: space-around;
+    }
+}
+
+.card {
+    margin-inline: auto;
+    margin-block: var(--card-margin);
+    max-width: 400px;
+    max-height: var(--card-height);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0.5rem 0.5rem 2rem hsl(229, 6%, 66%);
+    
+    
+}
+
+.card__content::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background-color: var(--card-color);
+    margin-bottom: 0.5rem;
+}
+
+.card__content {
+    padding-bottom: var(--card-padding-bottom);
+    display: flex;
+    flex-direction: column;
+}
+
+.card__heading {
+    font-weight: 600;
+    color: hsl(234, 12%, 34%);
+    padding-inline: var(--card-padding-inline);
+    padding-block: 1rem;
+}
+
+.card__text {
+    font-size: 0.9rem;
+    padding-inline: var(--card-padding-inline);
+}
+
+.card__image {
+    height: 64px;
+    width: 64px;
+    margin-inline: var(--card-padding-inline);
+    margin-top: 2rem;
+    display: block;
+    align-self: end;
+}
+
+.supervisor {
+    --card-color: hsl(180, 62%, 55%);
+   margin-top: calc(calc(var(--card-height)/2) + var(--card-margin));
+}
+
+@media (max-width: 1280px) {
+    .supervisor {
+        margin-top: var(--card-margin);
+    }
+}
+
+.team-builder {
+    --card-color: hsl(0, 78%, 62%);
+}
+
+.karma {
+    --card-color: hsl(34, 97%, 64%);
+}
+
+.calculator {
+    --card-color: hsl(212, 86%, 64%);
+    margin-top: calc(calc(var(--card-height)/2) + var(--card-margin));
+}
+
+@media (max-width: 1280px) {
+    .calculator {
+        margin-top: var(--card-margin);
+    }
+}
